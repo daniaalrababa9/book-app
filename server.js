@@ -37,7 +37,7 @@ app.post('/select',getSelectedBook)
 app.post('/add',addToDB)
 app.get('/',getFromDB)
 app.put('/update/:book_id', update)
-app.delete('/delete/:book_id', deleteBook)
+app.delete('/delete/:book_id', deleted)
 
 
 function showForm(req, res) {
@@ -84,7 +84,7 @@ function update(req,res){
  .then(res.redirect('/'))
 }
 
-function deleteBook(req, res) {
+function deleted(req, res) {
     let SQL = 'DElETE FROM result WHERE id=$1'
     let values = [req.params.book_id]
     client.query(SQL, values)
