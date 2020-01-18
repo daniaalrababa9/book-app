@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>books</title>
+    </head>
+    <body>
+        <header><h1>saved books</h1></header>
+        <main>
+            <div><a href="/search"> Search</a></div>
+
+           <% selected.forEach((book)=>{ %>
+            <p>The Title</p>
+            <li><%= book.title %></li>
+            <p>The author</p>
+            <li><%= book.authors %></li>
+            <p>The ISBN</p>
+            <li><%= book.isbn%></li>
+            <p>The descriptions</p>
+            <li> <%= book.description %></li>
+            <p>The image for the book</p>
+            <li><%= book.imgurl %>"</li>
+            <form action="/update/<%- book.id %>" method="post" >
+                <input type="hidden" name="_method" value="put">
+            <input type="text" name="id" value='<%= book.id %>'>
+            <input type="text" name="title" value='<%= book.title %>'>
+            <input type="text" name="authors" value='<%= book.authors %>'>
+            <input type="text" name="isbn" value='<%= book.isbn %>'>
+            <input type="text" name="description" value='<%= book.description%>'>
+            <input type="text" name="imgURL" value='<%= book.imgurl %>'>
+            <button>Update</button>
+            </form>
+            <form action="/delete/<%- book.id %>" method="post" >
+                <input type="hidden" name="_method" value="delete">
+                <input type="text" name="id" value='<%= book.id %>'>
+                <input type="text" name="title" value='<%= book.title %>'>
+                <input type="text" name="authors" value='<%= book.authors %>'>
+                <input type="text" name="isbn" value='<%= book.isbn %>'>
+                <input type="text" name="description" value='<%= book.description%>'>
+                <input type="text" name="imgURL" value='<%= book.imgurl %>'>
+                <button>delete</button>
+            </form>
+            <%   }) %>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <main>
+        <div>
+            <ul>
+                <% bookFromResult.forEach((book=>{ %>
+                    <p>The Title</p>
+                    <li>
+                        <%= book.volumeInfo.title %>
+                    </li>
+                    <p>The author</p>
+                    <li>
+                        <%= book.volumeInfo.authors %>
+                    </li>
+                    <p>The ISBN</p>
+                    <li>
+                        <%= book.volumeInfo.industryIdentifiers&&book.volumeInfo.industryIdentifiers[0].identifier%>
+                    </li>
+                    <p>The descriptions</p>
+                    <li>
+                        <%= book.volumeInfo.description %>
+                    </li>
+                    <p>The image for the book</p>
+                    <li> <img src="<%= (book.volumeInfo.imageLinks)? book.volumeInfo.imageLinks.thumbnail:" " %>"></li>
+                    <form action="/select" method="POST">
+                        <button>select this book</button>
+                        <input type="text" name="title" value=<%= book.volumeInfo.title %> >
+                        <input type="text" name="authors" value=<%= book.volumeInfo.authors %> >
+                        <input type="text" name="isbn" value=<%= book.volumeInfo.industryIdentifiers&&book.volumeInfo.industryIdentifiers[0].identifier%>>
+                        <input type="text" name="description" value=<%= book.volumeInfo.description %> >
+                        <input type="text" name="imgURL" value=<%= (book.volumeInfo.imageLinks)? book.volumeInfo.imageLinks.thumbnail: " " %> >
+
+                    </form>
+                    <%   })) %>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

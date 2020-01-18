@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>books</title>
+</header>
+
+<body>
+
+    <head>
+        <h1>Best Books!</h1>
+    </head>
+    <main>
+        <form action="/search" method="POST">
+            <label>
+                <span>Name of the book</span>
+                <input type="text" name="text" placeholder="Enter a title or author" />
+            </label>
+            <label>
+                <span>Title</span>
+                <input type="radio" name="searchResult" value="title">
+            </label>
+            <label>
+                <span>Author</span>
+                <input type="radio" name="searchResult" value="author" />
+            </label>
+            <button>search</button>
+        </form>
+    </main>
+</body>
+
+</html>
